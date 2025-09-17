@@ -24,7 +24,7 @@ jobs:
       - name: Move snake to assets
         run: |
           mkdir -p assets
-          mv dist/snake.svg assets/snake.svg
+          cp dist/snake.svg assets/snake.svg   # usamos cp en lugar de mv
 
       - name: Commit snake
         run: |
