@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/muneco_pixel.gif" alt="Gol animado pixel - SAMUEL SALAZAR OSPINA" width="100%"/>
+  <img src="./assets/muneco_pixel_final.gif" alt="Gol animado pixel - SAMUEL SALAZAR OSPINA" width="100%"/>
 </p>
 
 <p align="center">
@@ -31,17 +31,22 @@
   <img src="https://img.shields.io/badge/REST-02569B?style=for-the-badge&logo=fastapi&logoColor=white"/>
 </p>
 
-
 ---
 
 ## 📊 Estadísticas
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&theme=radical" height="160"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ssalazaro8&layout=compact&theme=radical" height="160"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ssalazaro8&layout=compact&theme=radical&exclude_langs=CSS" height="160"/>
 </p>
 
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=ssalazaro8&theme=radical" alt="Streak Stats" />
+</p>
+
+---
+
+<p align="center">
+  <img src="./assets/snake.svg" alt="Snake de contribuciones" width="100%"/>
 </p>
 
 ---
