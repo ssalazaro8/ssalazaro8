@@ -56,13 +56,13 @@ for step in range(10):
     goal_y = 50
     d.rectangle((goal_x, goal_y, goal_x+30, goal_y+40), outline="white", width=2)
     
-    # Malla inicial (no movida)
+    # Malla inicial
     for i in range(1, 3):
         d.line((goal_x, goal_y+i*10, goal_x+30, goal_y+i*10), fill="white")
     for i in range(1, 3):
         d.line((goal_x+i*10, goal_y, goal_x+i*10, goal_y+40), fill="white")
     
-    # Muñequito está frente al balón
+    # Muñequito frente al balón
     x = muneco_x + 10*10
     y = muneco_y
     d.ellipse((x, y-10, x+10, y), fill="black")
@@ -89,7 +89,7 @@ for step in range(6):
     goal_y = 50
     d.rectangle((goal_x, goal_y, goal_x+30, goal_y+40), outline="white", width=2)
     
-    # Malla oscilando para simular movimiento
+    # Malla oscilando
     for i in range(1, 3):
         offset = (-2)**step if i % 2 == 0 else 2**(step%2)
         d.line((goal_x+offset, goal_y+i*10, goal_x+30+offset, goal_y+i*10), fill="white")
@@ -100,12 +100,11 @@ for step in range(6):
     # Balón dentro de la portería
     d.ellipse((goal_x+10, goal_y+15, goal_x+20, goal_y+25), fill="orange")
     
-    # Muñequito celebrando (brazos arriba)
+    # Muñequito celebrando
     x = muneco_x + 10*10
     y = muneco_y - 5
     d.ellipse((x, y-10, x+10, y), fill="black")
     d.line((x+5, y, x+5, y+20), fill="black", width=2)
-    d.line((x-2, y+5, x+12, y+0), fill="black", width=2)
     d.line((x-2, y+5, x+12, y+0), fill="black", width=2)
     d.line((x, y+20, x-5, y+30), fill="black", width=2)
     d.line((x+10, y+20, x+15, y+30), fill="black", width=2)
@@ -132,7 +131,7 @@ frames[0].save(
     "assets/muneco_gol.gif",
     save_all=True,
     append_images=frames[1:],
-    duration=200,  # ms por frame
+    duration=200,
     loop=0
 )
 

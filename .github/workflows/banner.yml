@@ -29,6 +29,6 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email actions@github.com
-          git add assets/banner.gif
-          git commit -m "update banner" || echo "no changes"
+          git add assets/muneco_gol.gif
+          git commit -m "update muneco_gol.gif" || echo "no changes"
           git push

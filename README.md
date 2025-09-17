@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/banner.gif" alt="Gol animado - SAMUEL SALAZAR OSPINA" width="100%"/>
+  <img src="./assets/muneco_gol.gif" alt="Gol animado - SAMUEL SALAZAR OSPINA" width="100%"/>
 </p>
 
 <p align="center">
@@ -17,6 +17,7 @@
 ⚡ Fun fact: el café ☕ es mi framework secreto.
 
 ---
+
 
 ## 🛠️ Tech Stack
 <p align="center">
