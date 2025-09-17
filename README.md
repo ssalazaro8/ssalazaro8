@@ -1,6 +1,6 @@
-<p align="center">
+<!-- <p align="center">
   <img src="./assets/muneco_pixel_final.gif" alt="Gol animado pixel - SAMUEL SALAZAR OSPINA" width="100%"/>
-</p>
+</p> -->
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=ssalazaro8&label=Visitas&color=blue&style=flat-square" alt="Contador de visitas"/>
