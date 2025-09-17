@@ -19,7 +19,13 @@ texts = [
 for t in texts:
     img = Image.new("RGB", (W, H), color="navy")
     d = ImageDraw.Draw(img)
-    w, h = d.textsize(t, font=font)
+    
+    # Obtener ancho y alto del texto usando textbbox
+    bbox = d.textbbox((0, 0), t, font=font)
+    w = bbox[2] - bbox[0]
+    h = bbox[3] - bbox[1]
+    
+    # Dibujar el texto centrado
     d.text(((W - w) / 2, (H - h) / 2), t, fill="white", font=font)
     frames.append(img)
 
