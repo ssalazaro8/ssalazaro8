@@ -62,7 +62,7 @@
   <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=dark#gh-dark-mode-only" alt="Samuel Salazar GitHub stats-Dark" />
 
   <!-- Light Mode Stats -->
-  <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=default#gh-light-mode-only" alt="Samuel Salazar GitHub stats-Light" />
+  <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=default#gh-dark-mode-only" alt="Samuel Salazar GitHub stats-Dark" />
 </div>
 
 <div align="center">
