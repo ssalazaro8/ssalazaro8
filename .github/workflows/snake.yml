@@ -11,13 +11,21 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Generate snake animation
-        uses: Platane/snk@master
+        uses: Platane/snk@v3
         with:
           github_user_name: ssalazaro8
           outputs: |
-            ./assets/snake.svg
+            dist/snake.svg
+
+      - name: Move snake to assets
+        run: |
+          mkdir -p assets
+          mv dist/snake.svg assets/snake.svg
+
       - name: Commit snake
         run: |
           git config user.name github-actions
