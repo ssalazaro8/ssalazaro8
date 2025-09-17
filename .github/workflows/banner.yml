@@ -1,9 +1,9 @@
-name: Generate Banner
+name: Generate Pixel Muneco
 
 on:
   schedule:
-    - cron: "0 0 * * *"   # corre todos los días a medianoche
-  workflow_dispatch:       # permite ejecutarlo manualmente
+    - cron: "0 0 * * *"
+  workflow_dispatch:
 
 jobs:
   render:
@@ -11,7 +11,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Setup Python
@@ -19,16 +19,16 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Install dependencies
+      - name: Install Pillow
         run: pip install pillow
 
-      - name: Run banner script
-        run: python scripts/banner.py
+      - name: Run pixel muneco script
+        run: python scripts/muneco_pixel.py
 
-      - name: Commit banner
+      - name: Commit GIF
         run: |
           git config user.name github-actions
           git config user.email actions@github.com
-          git add assets/muneco_gol.gif
-          git commit -m "update muneco_gol.gif" || echo "no changes"
+          git add assets/muneco_pixel.gif
+          git commit -m "update muneco_pixel.gif" || echo "no changes"
           git push

@@ -1,23 +1,18 @@
 <p align="center">
-  <img src="./assets/muneco_gol.gif" alt="Gol animado - SAMUEL SALAZAR OSPINA" width="100%"/>
+  <img src="./assets/muneco_pixel.gif" alt="Gol animado pixel - SAMUEL SALAZAR OSPINA" width="100%"/>
 </p>
 
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=ssalazaro8&label=Visitas&color=blue&style=flat-square" alt="Contador de visitas"/>
 </p>
 
-<p align="center">
-  <img src="./assets/snake.svg" alt="Snake de contribuciones" width="100%"/>
-</p>
-
 # 👋 ¡Hola! Soy **SAMUEL SALAZAR OSPINA**
 
-💻 Desarrollador **Full-Stack** apasionado por crear aplicaciones escalables, limpias y con experiencias de usuario memorables.  
-🚀 Amante del aprendizaje continuo, la resolución de problemas y aportar en proyectos de impacto.  
+💻 Desarrollador **Full-Stack** apasionado por crear aplicaciones escalables y limpias.  
+🚀 Amante del aprendizaje continuo, resolución de problemas y proyectos de impacto.  
 ⚡ Fun fact: el café ☕ es mi framework secreto.
 
 ---
-
 
 ## 🛠️ Tech Stack
 <p align="center">
@@ -29,13 +24,13 @@
   <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white"/>
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
   <br/>
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
   <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
   <img src="https://img.shields.io/badge/REST-02569B?style=for-the-badge&logo=fastapi&logoColor=white"/>
 </p>
+
 
 ---
 
