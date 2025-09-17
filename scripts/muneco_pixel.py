@@ -4,102 +4,47 @@ import os
 # -----------------------------
 # Configuración
 # -----------------------------
-PIX = 12       # tamaño de cada píxel
-W, H = 25, 12  # ancho y alto en píxeles
+PIX = 10
+W, H = 30, 12
 IMG_W, IMG_H = W*PIX, H*PIX
 frames = []
 
 font = ImageFont.load_default()
 
-# Colores
-BG = (0, 50, 100)      # cielo/campo
-MUÑECO = (0, 0, 0)     # muñeco
-BALON = (255, 165, 0)  # balón naranja
-PORTERIA = (255, 255, 255)  # portería
+BG = (0, 100, 200)      # fondo cielo
+CAR = (255, 0, 0)       # auto rojo
+WHEEL = (0, 0, 0)       # ruedas negras
+FLAG = (255, 255, 0)    # bandera amarilla
+TEXT_COLOR = (0, 0, 0)  # texto negro
 
 # -----------------------------
-# 1. Muñequito corriendo (15 frames)
+# Animación del auto (20 frames)
 # -----------------------------
-for step in range(15):
+for step in range(20):
     img = Image.new("RGB", (IMG_W, IMG_H), BG)
     d = ImageDraw.Draw(img)
     
-    # Balón fijo
-    d.rectangle([15*PIX, 9*PIX, 16*PIX, 10*PIX], fill=BALON)
-    
-    # Muñequito
-    x = 1 + step
-    y = 9
-    # Cabeza
-    d.rectangle([x*PIX, (y-1)*PIX, (x+1)*PIX, y*PIX], fill=MUÑECO)
+    # Auto
+    car_x = 2 + step
+    car_y = 8
     # Cuerpo
-    d.rectangle([x*PIX, y*PIX, (x+1)*PIX, (y+1)*PIX], fill=MUÑECO)
-    # Piernas alternadas
+    d.rectangle([car_x*PIX, (car_y-2)*PIX, (car_x+4)*PIX, car_y*PIX], fill=CAR)
+    # Ruedas alternadas para simular movimiento
     if step % 2 == 0:
-        d.rectangle([x*PIX, (y+1)*PIX, (x+1)*PIX, (y+2)*PIX], fill=MUÑECO)
+        d.rectangle([car_x*PIX, car_y*PIX, (car_x+1)*PIX, (car_y+1)*PIX], fill=WHEEL)
+        d.rectangle([(car_x+3)*PIX, car_y*PIX, (car_x+4)*PIX, (car_y+1)*PIX], fill=WHEEL)
     else:
-        d.rectangle([(x+1)*PIX, (y+1)*PIX, (x+2)*PIX, (y+2)*PIX], fill=MUÑECO)
-
-    frames.append(img)
-
-# -----------------------------
-# 2. Pateando balón (10 frames)
-# -----------------------------
-for step in range(10):
-    img = Image.new("RGB", (IMG_W, IMG_H), BG)
-    d = ImageDraw.Draw(img)
+        d.rectangle([ (car_x+0.5)*PIX, car_y*PIX, (car_x+1.5)*PIX, (car_y+1)*PIX], fill=WHEEL)
+        d.rectangle([ (car_x+2.5)*PIX, car_y*PIX, (car_x+3.5)*PIX, (car_y+1)*PIX], fill=WHEEL)
     
-    # Balón avanzando
-    balon_x = 15 + step*2
-    d.rectangle([balon_x*PIX, 9*PIX, (balon_x+1)*PIX, 10*PIX], fill=BALON)
+    # Bandera
+    flag_x = (car_x+4)*PIX
+    flag_y = (car_y-3)*PIX
+    d.rectangle([flag_x, flag_y, flag_x+PIX*4, flag_y+PIX*2], fill=FLAG)
+    # Texto dentro de la bandera
+    msg = "¡Bienvenido!"
+    d.text((flag_x+2, flag_y), msg, fill=TEXT_COLOR, font=font)
     
-    # Muñequito frente al balón
-    d.rectangle([11*PIX, 8*PIX, 12*PIX, 9*PIX], fill=MUÑECO)  # cabeza
-    d.rectangle([11*PIX, 9*PIX, 12*PIX, 10*PIX], fill=MUÑECO) # cuerpo
-    d.rectangle([11*PIX, 10*PIX, 12*PIX, 11*PIX], fill=MUÑECO) # piernas
-    
-    # Portería
-    for i in range(3):
-        d.rectangle([22*PIX, (8+i)*PIX, 23*PIX, (9+i)*PIX], fill=PORTERIA)
-    
-    frames.append(img)
-
-# -----------------------------
-# 3. Gol y celebración (8 frames)
-# -----------------------------
-for step in range(8):
-    img = Image.new("RGB", (IMG_W, IMG_H), BG)
-    d = ImageDraw.Draw(img)
-    
-    # Balón dentro de portería
-    d.rectangle([22*PIX, 9*PIX, 23*PIX, 10*PIX], fill=BALON)
-    
-    # Muñequito celebrando
-    d.rectangle([11*PIX, 7*PIX, 12*PIX, 8*PIX], fill=MUÑECO)  # cabeza
-    d.rectangle([11*PIX, 8*PIX, 12*PIX, 9*PIX], fill=MUÑECO)  # cuerpo
-    d.rectangle([11*PIX, 9*PIX, 12*PIX, 10*PIX], fill=MUÑECO) # piernas
-    # brazos arriba
-    d.rectangle([10*PIX, 7*PIX, 11*PIX, 8*PIX], fill=MUÑECO)
-    d.rectangle([12*PIX, 7*PIX, 13*PIX, 8*PIX], fill=MUÑECO)
-    
-    # Portería con malla oscilante
-    offset = (-1)**step
-    for i in range(3):
-        d.rectangle([22*PIX, (8+i)*PIX, 23*PIX, (9+i)*PIX], fill=PORTERIA)
-        d.rectangle([22*PIX+offset, (8+i)*PIX, 23*PIX+offset, (9+i)*PIX], fill=PORTERIA)
-    
-    frames.append(img)
-
-# -----------------------------
-# 4. Mensaje final largo (40 frames)
-# -----------------------------
-for _ in range(40):
-    img = Image.new("RGB", (IMG_W, IMG_H), BG)
-    d = ImageDraw.Draw(img)
-    msg = "¡Bienvenido a mi perfil!"
-    bbox = d.textbbox((0,0), msg, font=font)
-    w, h = bbox[2]-bbox[0], bbox[3]-bbox[1]
-    d.text(((IMG_W-w)/2, (IMG_H-h)/2), msg, fill=(255,255,255), font=font)
     frames.append(img)
 
 # -----------------------------
@@ -107,10 +52,11 @@ for _ in range(40):
 # -----------------------------
 os.makedirs("assets", exist_ok=True)
 frames[0].save(
-    "assets/muneco_pixel_final.gif",
+    "assets/auto_pixel.gif",
     save_all=True,
     append_images=frames[1:],
-    duration=120,  # ms por frame para más fluidez
+    duration=150,  # ms por frame
     loop=0
 )
-print("¡GIF pixel art de fútbol generado en assets/muneco_pixel_final.gif!")
+
+print("¡GIF pixel art del auto generado en assets/auto_pixel.gif!")
