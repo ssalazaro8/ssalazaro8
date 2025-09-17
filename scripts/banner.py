@@ -1,138 +1,143 @@
 from PIL import Image, ImageDraw, ImageFont
 import os
 
-# Dimensiones del GIF
-W, H = 250, 120
+# Configuración de pixel art
+PIXEL = 10  # tamaño de cada pixel
+W, H = 25, 12  # tamaño en "pixeles"
+IMG_W, IMG_H = W*PIXEL, H*PIXEL
+
 frames = []
 
-# Posiciones iniciales
-muneco_x = 10
-muneco_y = 80
-balon_x = 150
-balon_y = 90
-
-# Fuente para el mensaje final
+# Fuente para mensaje final
 font = ImageFont.load_default()
 
-# --------------------
-# 1. Muñequito corriendo hacia el balón (brazos y piernas se mueven)
-# --------------------
+# Paleta simple
+BG_COLOR = (0, 0, 50)      # azul oscuro
+MUÑECO_COLOR = (0, 0, 0)   # negro
+BALON_COLOR = (255, 165, 0) # naranja
+PORTERIA_COLOR = (255, 255, 255) # blanca
+
+# -----------------------------
+# 1. Muñequito corriendo
+# -----------------------------
 for step in range(10):
-    img = Image.new("RGB", (W, H), "skyblue")
+    img = Image.new("RGB", (IMG_W, IMG_H), BG_COLOR)
     d = ImageDraw.Draw(img)
-    
-    # Dibujar balón
-    d.ellipse((balon_x, balon_y, balon_x+10, balon_y+10), fill="orange")
-    
-    # Muñequito
-    x = muneco_x + step*10
-    y = muneco_y
-    
-    # Cabeza
-    d.ellipse((x, y-10, x+10, y), fill="black")
-    # Cuerpo
-    d.line((x+5, y, x+5, y+20), fill="black", width=2)
-    # Brazos alternando arriba/abajo
-    if step % 2 == 0:
-        d.line((x+5-7, y+5, x+5+7, y+5), fill="black", width=2)
-        d.line((x+5-5, y+20, x+5-10, y+30), fill="black", width=2)
-        d.line((x+5+5, y+20, x+5+10, y+30), fill="black", width=2)
+
+    # Balón fijo
+    balon_pos = (15, 9)
+    d.rectangle([balon_pos[0]*PIXEL, balon_pos[1]*PIXEL,
+                 (balon_pos[0]+1)*PIXEL, (balon_pos[1]+1)*PIXEL], fill=BALON_COLOR)
+
+    # Muñequito (bloques)
+    muñeco_x = 1 + step
+    muñeco_y = 9
+    # cabeza
+    d.rectangle([muñeco_x*PIXEL, (muñeco_y-1)*PIXEL,
+                 (muñeco_x+1)*PIXEL, muñeco_y*PIXEL], fill=MUÑECO_COLOR)
+    # cuerpo
+    d.rectangle([muñeco_x*PIXEL, muñeco_y*PIXEL,
+                 (muñeco_x+1)*PIXEL, (muñeco_y+1)*PIXEL], fill=MUÑECO_COLOR)
+    # piernas alternando para simular correr
+    if step %2 ==0:
+        d.rectangle([muñeco_x*PIXEL, (muñeco_y+1)*PIXEL,
+                     (muñeco_x+1)*PIXEL, (muñeco_y+2)*PIXEL], fill=MUÑECO_COLOR)
     else:
-        d.line((x+5-7, y+10, x+5+7, y+10), fill="black", width=2)
-        d.line((x+5-5, y+20, x+5-8, y+30), fill="black", width=2)
-        d.line((x+5+5, y+20, x+5+8, y+30), fill="black", width=2)
-    
+        d.rectangle([ (muñeco_x+1)*PIXEL, (muñeco_y+1)*PIXEL,
+                      (muñeco_x+2)*PIXEL, (muñeco_y+2)*PIXEL], fill=MUÑECO_COLOR)
+
     frames.append(img)
 
-# --------------------
-# 2. Patea el balón (balón se mueve hacia portería)
-# --------------------
-for step in range(10):
-    img = Image.new("RGB", (W, H), "skyblue")
+# -----------------------------
+# 2. Patea el balón
+# -----------------------------
+for step in range(5):
+    img = Image.new("RGB", (IMG_W, IMG_H), BG_COLOR)
     d = ImageDraw.Draw(img)
-    
+
+    # Balón se mueve hacia la portería
+    balon_x = 15 + step*2
+    balon_y = 9
+    d.rectangle([balon_x*PIXEL, balon_y*PIXEL,
+                 (balon_x+1)*PIXEL, (balon_y+1)*PIXEL], fill=BALON_COLOR)
+
+    # Muñequito está delante
+    muñeco_x = 11
+    muñeco_y = 9
+    d.rectangle([muñeco_x*PIXEL, (muñeco_y-1)*PIXEL,
+                 (muñeco_x+1)*PIXEL, muñeco_y*PIXEL], fill=MUÑECO_COLOR)
+    d.rectangle([muñeco_x*PIXEL, muñeco_y*PIXEL,
+                 (muñeco_x+1)*PIXEL, (muñeco_y+1)*PIXEL], fill=MUÑECO_COLOR)
+    d.rectangle([muñeco_x*PIXEL, (muñeco_y+1)*PIXEL,
+                 (muñeco_x+1)*PIXEL, (muñeco_y+2)*PIXEL], fill=MUÑECO_COLOR)
+
     # Portería
-    goal_x = W - 40
-    goal_y = 50
-    d.rectangle((goal_x, goal_y, goal_x+30, goal_y+40), outline="white", width=2)
-    
-    # Malla inicial
-    for i in range(1, 3):
-        d.line((goal_x, goal_y+i*10, goal_x+30, goal_y+i*10), fill="white")
-    for i in range(1, 3):
-        d.line((goal_x+i*10, goal_y, goal_x+i*10, goal_y+40), fill="white")
-    
-    # Muñequito frente al balón
-    x = muneco_x + 10*10
-    y = muneco_y
-    d.ellipse((x, y-10, x+10, y), fill="black")
-    d.line((x+5, y, x+5, y+20), fill="black", width=2)
-    d.line((x-2, y+5, x+12, y+5), fill="black", width=2)  # brazos extendidos
-    d.line((x, y+20, x-5, y+30), fill="black", width=2)
-    d.line((x+10, y+20, x+15, y+30), fill="black", width=2)
-    
-    # Balón avanzando
-    balon_pos = balon_x + step*8
-    d.ellipse((balon_pos, balon_y, balon_pos+10, balon_y+10), fill="orange")
-    
+    port_x = 22
+    port_y = 8
+    d.rectangle([port_x*PIXEL, port_y*PIXEL,
+                 (port_x+1)*PIXEL, (port_y+3)*PIXEL], fill=PORTERIA_COLOR)
+
     frames.append(img)
 
-# --------------------
-# 3. Gol y portería con malla moviéndose
-# --------------------
+# -----------------------------
+# 3. Gol y celebración
+# -----------------------------
 for step in range(6):
-    img = Image.new("RGB", (W, H), "skyblue")
+    img = Image.new("RGB", (IMG_W, IMG_H), BG_COLOR)
     d = ImageDraw.Draw(img)
-    
+
+    # Balón en portería
+    d.rectangle([22*PIXEL, 9*PIXEL, 23*PIXEL, 10*PIXEL], fill=BALON_COLOR)
+
+    # Muñequito celebrando (brazos arriba)
+    muñeco_x = 11
+    muñeco_y = 9
+    # cabeza
+    d.rectangle([muñeco_x*PIXEL, (muñeco_y-1)*PIXEL,
+                 (muñeco_x+1)*PIXEL, muñeco_y*PIXEL], fill=MUÑECO_COLOR)
+    # cuerpo
+    d.rectangle([muñeco_x*PIXEL, muñeco_y*PIXEL,
+                 (muñeco_x+1)*PIXEL, (muñeco_y+1)*PIXEL], fill=MUÑECO_COLOR)
+    # piernas
+    d.rectangle([muñeco_x*PIXEL, (muñeco_y+1)*PIXEL,
+                 (muñeco_x+1)*PIXEL, (muñeco_y+2)*PIXEL], fill=MUÑECO_COLOR)
+    # brazos arriba
+    d.rectangle([ (muñeco_x-1)*PIXEL, (muñeco_y-1)*PIXEL,
+                  muñeco_x*PIXEL, muñeco_y*PIXEL], fill=MUÑECO_COLOR)
+    d.rectangle([ (muñeco_x+1)*PIXEL, (muñeco_y-1)*PIXEL,
+                  (muñeco_x+2)*PIXEL, muñeco_y*PIXEL], fill=MUÑECO_COLOR)
+
     # Portería
-    goal_x = W - 40
-    goal_y = 50
-    d.rectangle((goal_x, goal_y, goal_x+30, goal_y+40), outline="white", width=2)
-    
-    # Malla oscilando
-    for i in range(1, 3):
-        offset = (-2)**step if i % 2 == 0 else 2**(step%2)
-        d.line((goal_x+offset, goal_y+i*10, goal_x+30+offset, goal_y+i*10), fill="white")
-    for i in range(1, 3):
-        offset = (-1)**step * i
-        d.line((goal_x+i*10, goal_y, goal_x+i*10, goal_y+40), fill="white")
-    
-    # Balón dentro de la portería
-    d.ellipse((goal_x+10, goal_y+15, goal_x+20, goal_y+25), fill="orange")
-    
-    # Muñequito celebrando
-    x = muneco_x + 10*10
-    y = muneco_y - 5
-    d.ellipse((x, y-10, x+10, y), fill="black")
-    d.line((x+5, y, x+5, y+20), fill="black", width=2)
-    d.line((x-2, y+5, x+12, y+0), fill="black", width=2)
-    d.line((x, y+20, x-5, y+30), fill="black", width=2)
-    d.line((x+10, y+20, x+15, y+30), fill="black", width=2)
-    
+    port_x = 22
+    port_y = 8
+    d.rectangle([port_x*PIXEL, port_y*PIXEL,
+                 (port_x+1)*PIXEL, (port_y+3)*PIXEL], fill=PORTERIA_COLOR)
+
     frames.append(img)
 
-# --------------------
-# 4. Mensaje final
-# --------------------
-img = Image.new("RGB", (W, H), "skyblue")
-d = ImageDraw.Draw(img)
-msg = "¡Bienvenido a mi perfil!"
-bbox = d.textbbox((0,0), msg, font=font)
-w = bbox[2] - bbox[0]
-h = bbox[3] - bbox[1]
-d.text(((W-w)/2, (H-h)/2), msg, fill="black", font=font)
-frames.append(img)
+# -----------------------------
+# 4. Mensaje final (varios frames para que dure más)
+# -----------------------------
+for _ in range(15):  # dura más tiempo
+    img = Image.new("RGB", (IMG_W, IMG_H), BG_COLOR)
+    d = ImageDraw.Draw(img)
+    msg = "¡Bienvenido a mi perfil!"
+    bbox = d.textbbox((0,0), msg, font=font)
+    w = bbox[2] - bbox[0]
+    h = bbox[3] - bbox[1]
+    d.text(((IMG_W-w)/2, (IMG_H-h)/2), msg, fill=(255,255,255), font=font)
+    frames.append(img)
 
-# Crear carpeta de salida si no existe
+# Crear carpeta de salida
 os.makedirs("assets", exist_ok=True)
 
 # Guardar GIF animado
 frames[0].save(
-    "assets/muneco_gol.gif",
+    "assets/muneco_pixel.gif",
     save_all=True,
     append_images=frames[1:],
     duration=200,
     loop=0
 )
 
-print("¡GIF generado en assets/muneco_gol.gif!")
+print("¡GIF pixel art generado en assets/muneco_pixel.gif!")
