@@ -101,7 +101,7 @@ frames[0].save(
     "assets/muneco_pixel_final.gif",
     save_all=True,
     append_images=frames[1:],
-    duration=150,  # ms por frame para más fluidez
+    duration=150,
     loop=0
 )
 print("¡GIF pixel art final generado en assets/muneco_pixel_final.gif!")

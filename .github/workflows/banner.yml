@@ -26,10 +26,9 @@ jobs:
         run: python scripts/muneco_pixel.py
 
       - name: Commit GIF
-  run: |
-    git config user.name github-actions
-    git config user.email actions@github.com
-    git add assets/muneco_pixel_final.gif
-    git commit -m "update muneco_pixel_final.gif" || echo "no changes"
-    git push
-
+        run: |
+          git config user.name github-actions
+          git config user.email actions@github.com
+          git add assets/muneco_pixel_final.gif
+          git commit -m "update muneco_pixel_final.gif" || echo "no changes"
+          git push
