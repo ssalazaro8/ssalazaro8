@@ -76,7 +76,7 @@
 
 ## 🐍 Contributions Snake
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ssalazaro8/ssalazaro8/output/snake.svg" alt="Snake animation" width="100%"/>
+ <img src="./assets/snake.svg" alt="Snake animation" width="100%"/>
 </p>
 
 ---
