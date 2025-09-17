@@ -1,59 +1,62 @@
 from PIL import Image, ImageDraw, ImageFont
 import os
 
+# Configuración general
 PIX = 10
-W, H = 30, 12
+W, H = 50, 20
 IMG_W, IMG_H = W*PIX, H*PIX
 frames = []
 
+# Colores
+BG = (135, 206, 235)        # cielo celeste
+CAR = (220, 20, 60)         # rojo chimba
+WHEEL = (20, 20, 20)        # ruedas negras
+HIGHLIGHT = (255, 255, 255) # reflejo del carro
+FLAG_BG = (255, 215, 0)     # amarillo bandera
+TEXT_COLOR = (0, 0, 0)      # texto negro
+
+# Fuente para el mensaje
 font = ImageFont.load_default()
 
-BG = (0, 100, 200)      # fondo cielo
-CAR = (255, 0, 0)       # auto rojo
-WHEEL = (0, 0, 0)       # ruedas negras
-FLAG = (255, 255, 0)    # bandera amarilla
-TEXT_COLOR = (0, 0, 0)  # texto negro
-
-# -----------------------------
-# 1. Animación del auto (20 frames)
-# -----------------------------
-for step in range(20):
+# Animación
+for step in range(25):
     img = Image.new("RGB", (IMG_W, IMG_H), BG)
     d = ImageDraw.Draw(img)
     
-    # Auto
+    # Auto deportivo
     car_x = 2 + step
-    car_y = 8
+    car_y = 12
     # Cuerpo
-    d.rectangle([car_x*PIX, (car_y-2)*PIX, (car_x+4)*PIX, car_y*PIX], fill=CAR)
-    # Ruedas alternadas para simular movimiento
-    if step % 2 == 0:
-        d.rectangle([car_x*PIX, car_y*PIX, (car_x+1)*PIX, (car_y+1)*PIX], fill=WHEEL)
-        d.rectangle([(car_x+3)*PIX, car_y*PIX, (car_x+4)*PIX, (car_y+1)*PIX], fill=WHEEL)
-    else:
-        d.rectangle([(car_x+0.5)*PIX, car_y*PIX, (car_x+1.5)*PIX, (car_y+1)*PIX], fill=WHEEL)
-        d.rectangle([(car_x+2.5)*PIX, car_y*PIX, (car_x+3.5)*PIX, (car_y+1)*PIX], fill=WHEEL)
+    d.rectangle([car_x*PIX, (car_y-3)*PIX, (car_x+7)*PIX, car_y*PIX], fill=CAR)
+    # Techo
+    d.polygon([(car_x*PIX+2, (car_y-3)*PIX),
+               (car_x*PIX+5, (car_y-3)*PIX),
+               (car_x*PIX+6, (car_y-4)*PIX),
+               (car_x*PIX+1, (car_y-4)*PIX)], fill=CAR)
+    # Reflejo
+    d.line([(car_x*PIX+1, (car_y-3)*PIX), (car_x*PIX+6, (car_y-3)*PIX)], fill=HIGHLIGHT)
     
-    # Bandera
-    flag_x = (car_x+4)*PIX
-    flag_y = (car_y-3)*PIX
-    d.rectangle([flag_x, flag_y, flag_x+PIX*8, flag_y+PIX*2], fill=FLAG)
-    # Texto dentro de la bandera
+    # Ruedas
+    d.ellipse([(car_x*PIX+1, car_y*PIX), (car_x*PIX+2.5, car_y*PIX+1.5)], fill=WHEEL)
+    d.ellipse([(car_x*PIX+5, car_y*PIX), (car_x*PIX+6.5, car_y*PIX+1.5)], fill=WHEEL)
+    
+    # Bandera bienvenida
+    flag_x = (car_x+8)*PIX
+    flag_y = (car_y-5)*PIX
+    d.rectangle([flag_x, flag_y, flag_x+PIX*12, flag_y+PIX*3], fill=FLAG_BG)
     msg = "¡Bienvenido a mi perfil!"
-    d.text((flag_x+2, flag_y), msg, fill=TEXT_COLOR, font=font)
+    d.text((flag_x+5, flag_y+5), msg, fill=TEXT_COLOR, font=font)
     
     frames.append(img)
 
-# -----------------------------
-# Guardar GIF con mismo nombre de asset
-# -----------------------------
+# Guardar GIF
 os.makedirs("assets", exist_ok=True)
 frames[0].save(
-    "assets/muneco_pixel_final.gif",
+    "assets/auto_chimba.gif",
     save_all=True,
     append_images=frames[1:],
-    duration=150,
+    duration=100,
     loop=0
 )
 
-print("¡GIF pixel art del auto generado en assets/muneco_pixel_final.gif!")
+print("¡GIF del auto chimba generado en assets/auto_chimba.gif!")
