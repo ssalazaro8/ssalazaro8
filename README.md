@@ -58,14 +58,11 @@
 ## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="35"><b> 🔥 My Stats </b>
 
 <div align="center">
-  <a href="https://git.io/streak-stats">
-    <img src="https://streak-stats.demolab.com?user=ssalazaro8&theme=dark&date_format=j%20M%5B%20Y%5D&ring=5DFFAB&fire=EBEBEB&currStreakLabel=7CFFE3&sideLabels=F4FF2C" alt="GitHub Streak" />
-  </a>
-</div>
+  <!-- Dark Mode Stats -->
+  <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=dark#gh-dark-mode-only" alt="Samuel Salazar GitHub stats-Dark" />
 
-<div align="center">
-  [![Samuel Salazar GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=dark#gh-dark-mode-only&locale=en)](https://github.com/ssalazaro8)
-  [![Samuel Salazar GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=default#gh-light-mode-only&locale=en)](https://github.com/ssalazaro8)
+  <!-- Light Mode Stats -->
+  <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=default#gh-light-mode-only" alt="Samuel Salazar GitHub stats-Light" />
 </div>
 
 <div align="center">
