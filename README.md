@@ -58,25 +58,16 @@
 ## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="35"><b> 🔥 My Stats </b>
 
 <div align="center">
-  <!-- Pyramid Layout for Stats -->
-  <table align="center">
-    <tr>
-      <td colspan="2" align="center">
-        <!-- GitHub Stats -->
-        <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=dark" alt="Samuel Salazar GitHub stats" />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <!-- Top Languages -->
-        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=ssalazaro8&layout=compact&theme=dark&card_width=320" alt="Top Languages"/>
-      </td>
-      <td>
-        <!-- Streak Stats -->
-        <img src="https://streak-stats.demolab.com?user=ssalazaro8&theme=dark&date_format=j%20M%5B%20Y%5D&ring=5DFFAB&fire=EBEBEB&currStreakLabel=7CFFE3&sideLabels=F4FF2C" alt="GitHub Streak" />
-      </td>
-    </tr>
-  </table>
+  <!-- Pila vertical de stats -->
+  <img src="https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=dark" alt="Samuel Salazar GitHub stats" width="400"/>
+
+  <br/>
+
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=ssalazaro8&layout=compact&theme=dark&card_width=400" alt="Top Languages" width="400"/>
+
+  <br/>
+
+  <img src="https://streak-stats.demolab.com?user=ssalazaro8&theme=dark&date_format=j%20M%5B%20Y%5D&ring=5DFFAB&fire=EBEBEB&currStreakLabel=7CFFE3&sideLabels=F4FF2C" alt="GitHub Streak" width="400"/>
 </div>
 
 ---
