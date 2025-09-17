@@ -64,8 +64,8 @@
 </div>
 
 <div align="center">
-  [![Samuel Salazar GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=dark#gh-dark-mode-only&locale=en)](https://github.com/anuraghazra/github-readme-stats#gh-dark-mode-only)
-  [![Samuel Salazar GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=default#gh-light-mode-only&locale=en)](https://github.com/anuraghazra/github-readme-stats#gh-light-mode-only)
+  [![Samuel Salazar GitHub stats-Dark](https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=dark#gh-dark-mode-only&locale=en)](https://github.com/ssalazaro8)
+  [![Samuel Salazar GitHub stats-Light](https://github-readme-stats.vercel.app/api?username=ssalazaro8&show_icons=true&include_all_commits=true&count_private=true&theme=default#gh-light-mode-only&locale=en)](https://github.com/ssalazaro8)
 </div>
 
 <div align="center">
@@ -76,7 +76,7 @@
 
 ## 🐍 Contributions Snake
 <p align="center">
- <img src="./assets/snake.svg" alt="Snake animation" width="100%"/>
+  <img src="./assets/snake.svg" alt="Snake animation" width="100%"/>
 </p>
 
 ---
