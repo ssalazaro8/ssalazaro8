@@ -52,7 +52,7 @@ for step in range(25):
 # Guardar GIF
 os.makedirs("assets", exist_ok=True)
 frames[0].save(
-    "assets/auto_chimba.gif",
+    "assets/muneco_pixel_final.gif",
     save_all=True,
     append_images=frames[1:],
     duration=100,
