@@ -1,0 +1,40 @@
+{
+  "username": "ssalazaro8",
+  "totalRepos": 5,
+  "totalCommits": 250,
+  "languages": {
+    "JavaScript": 3200,
+    "HTML": 2800,
+    "CSS": 2200,
+    "Python": 1800,
+    "TypeScript": 1500,
+    "PHP": 1200,
+    "JSON": 900,
+    "Java": 600,
+    "SQL": 500
+  },
+  "frameworks": [
+    "React",
+    "Angular",
+    "Node.js",
+    "Express",
+    "Django",
+    "Flask",
+    "Laravel",
+    "NestJS",
+    "FastAPI",
+    "Spring"
+  ],
+  "databases": [
+    "MongoDB",
+    "MySQL",
+    "PostgreSQL",
+    "SQLite",
+    "Redis",
+    "Firebase"
+  ],
+  "topLanguage": "JavaScript",
+  "mostUsedFramework": "React",
+  "repositories": [],
+  "lastUpdated": "2024-09-20T12:00:00"
+}

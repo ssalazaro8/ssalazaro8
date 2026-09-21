@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Salazar - Full Stack Developer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            animation: slideDown 0.6s ease;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            animation: slideUp 0.6s ease;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        canvas#gameCanvas {
+            width: 100%;
+            height: auto;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .game-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: rgba(0,0,0,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .info-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat-card {
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #00ff88;
+        }
+
+        .stat-title {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .progress-bar {
+            background: rgba(0,0,0,0.3);
+            height: 20px;
+            border-radius: 10px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff88, #0088ff);
+            border-radius: 10px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75em;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            background: rgba(0,0,0,0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .skill-badge:hover {
+            background: rgba(0,0,0,0.5);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.1);
+        }
+
+        .languages-section {
+            margin-bottom: 25px;
+        }
+
+        .language-item {
+            margin-bottom: 15px;
+        }
+
+        .language-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .language-percentage {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+
+        .grid-full {
+            grid-column: 1 / -1;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-links a:hover {
+            background: rgba(0,0,0,0.4);
+            transform: translateY(-3px);
+        }
+
+        .data-source {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.85em;
+            opacity: 0.7;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👋 Hi, I'm Samuel Salazar!</h1>
+            <p class="subtitle">💻 Full-Stack Developer | 🚀 Tech Enthusiast | ☕ Coffee Powered</p>
+            <div class="contact-links">
+                <a href="https://github.com/ssalazaro8" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/samuel-salazar-ospina-419899245" target="_blank">LinkedIn</a>
+                <a href="mailto:samuelsala24@gmail.com">Email</a>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- GAME CARD -->
+            <div class="card">
+                <h2>🎮 Snake Game</h2>
+                <canvas id="gameCanvas" width="300" height="300"></canvas>
+                <div class="game-info">
+                    <div class="info-item">
+                        <div class="info-label">Score</div>
+                        <div class="info-value" id="score">0</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Best</div>
+                        <div class="info-value" id="bestScore">0</div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button onclick="gameStart()">▶ Start</button>
+                    <button onclick="gamePause()">⏸ Pause</button>
+                    <button onclick="gameReset()">🔄 Reset</button>
+                    <button onclick="toggleAutoPlay()">🤖 Auto</button>
+                </div>
+                <div class="data-source">Use arrow keys or WASD to control</div>
+            </div>
+
+            <!-- STATS CARD -->
+            <div class="card">
+                <h2>📊 Statistics</h2>
+                <div id="stats-container" class="stats-grid">
+                    <div class="loading">Loading statistics...</div>
+                </div>
+            </div>
+
+            <!-- LANGUAGES CARD (FULL WIDTH) -->
+            <div class="card grid-full">
+                <h2>🗣️ Programming Languages</h2>
+                <div class="languages-section" id="languages-container">
+                    <div class="loading">Loading languages...</div>
+                </div>
+            </div>
+
+            <!-- FRAMEWORKS CARD (FULL WIDTH) -->
+            <div class="card grid-full">
+                <h2>🔧 Frameworks & Tools</h2>
+                <div class="skills-container" id="frameworks-container">
+                    <div class="loading">Loading frameworks...</div>
+                </div>
+            </div>
+
+            <!-- DATABASES CARD (FULL WIDTH) -->
+            <div class="card grid-full">
+                <h2>🗄️ Databases</h2>
+                <div class="skills-container" id="databases-container">
+                    <div class="loading">Loading databases...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🚀 Dynamically generated from my GitHub repositories</p>
+            <p>Last updated: <span id="last-updated">Loading...</span></p>
+        </div>
+    </div>
+
+    <script>
+        // Sample data (will be replaced when real stats.json is loaded)
+        const SAMPLE_DATA = {
+            totalRepos: 5,
+            totalCommits: 250,
+            topLanguage: 'JavaScript',
+            mostUsedFramework: 'React',
+            languages: {
+                'JavaScript': 3200,
+                'HTML': 2800,
+                'CSS': 2200,
+                'Python': 1800,
+                'TypeScript': 1500,
+                'PHP': 1200
+            },
+            frameworks: ['React', 'Angular', 'Node.js', 'Express', 'Django', 'NestJS', 'Laravel'],
+            databases: ['MongoDB', 'MySQL', 'PostgreSQL', 'SQLite', 'Redis', 'Firebase']
+        };
+
+        // ============ SNAKE GAME ============
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const gridSize = 20;
+        const tileCount = 15;
+
+        let snake = [{ x: 7, y: 7 }];
+        let food = { x: 10, y: 10 };
+        let direction = { x: 1, y: 0 };
+        let nextDirection = { x: 1, y: 0 };
+        let score = 0;
+        let bestScore = localStorage.getItem('bestScore') || 0;
+        let gameRunning = false;
+        let gamePaused = false;
+        let gameSpeed = 8;
+        let frameCount = 0;
+        let autoPlay = false;
+
+        document.getElementById('bestScore').textContent = bestScore;
+
+        function drawGame() {
+            ctx.fillStyle = '#1a1a2e';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw grid
+            ctx.strokeStyle = 'rgba(255,255,255,0.1)';
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i <= tileCount; i++) {
+                ctx.beginPath();
+                ctx.moveTo(i * gridSize, 0);
+                ctx.lineTo(i * gridSize, canvas.height);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(0, i * gridSize);
+                ctx.lineTo(canvas.width, i * gridSize);
+                ctx.stroke();
+            }
+
+            // Draw food
+            ctx.fillStyle = '#ff6b6b';
+            ctx.beginPath();
+            ctx.arc(food.x * gridSize + gridSize / 2, food.y * gridSize + gridSize / 2, gridSize / 2 - 2, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw snake
+            snake.forEach((segment, index) => {
+                if (index === 0) {
+                    ctx.fillStyle = '#00ff88';
+                } else {
+                    ctx.fillStyle = '#00cc66';
+                }
+                ctx.fillRect(segment.x * gridSize + 2, segment.y * gridSize + 2, gridSize - 4, gridSize - 4);
+            });
+
+            // Draw pause overlay
+            if (gamePaused && gameRunning) {
+                ctx.fillStyle = 'rgba(0,0,0,0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#00ff88';
+                ctx.font = 'bold 20px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('PAUSED', canvas.width / 2, canvas.height / 2);
+            }
+        }
+
+        function update() {
+            if (!gameRunning || gamePaused) return;
+
+            frameCount++;
+            if (frameCount < gameSpeed) return;
+            frameCount = 0;
+
+            direction = nextDirection;
+
+            if (autoPlay) {
+                const head = snake[0];
+                const diffX = food.x - head.x;
+                const diffY = food.y - head.y;
+
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    nextDirection = diffX > 0 ? { x: 1, y: 0 } : { x: -1, y: 0 };
+                } else {
+                    nextDirection = diffY > 0 ? { x: 0, y: 1 } : { x: 0, y: -1 };
+                }
+            }
+
+            const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+            // Check collision with walls
+            if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+                gameOver();
+                return;
+            }
+
+            // Check collision with self
+            if (snake.some(segment => segment.x === head.x && segment.y === head.y)) {
+                gameOver();
+                return;
+            }
+
+            snake.unshift(head);
+
+            // Check if food eaten
+            if (head.x === food.x && head.y === food.y) {
+                score++;
+                document.getElementById('score').textContent = score;
+                generateFood();
+                gameSpeed = Math.max(3, gameSpeed - 0.1);
+            } else {
+                snake.pop();
+            }
+        }
+
+        function generateFood() {
+            let newFood;
+            do {
+                newFood = { x: Math.floor(Math.random() * tileCount), y: Math.floor(Math.random() * tileCount) };
+            } while (snake.some(segment => segment.x === newFood.x && segment.y === newFood.y));
+            food = newFood;
+        }
+
+        function gameStart() {
+            gameRunning = true;
+            gamePaused = false;
+        }
+
+        function gamePause() {
+            if (gameRunning) {
+                gamePaused = !gamePaused;
+            }
+        }
+
+        function gameReset() {
+            snake = [{ x: 7, y: 7 }];
+            direction = { x: 1, y: 0 };
+            nextDirection = { x: 1, y: 0 };
+            score = 0;
+            gameSpeed = 8;
+            gameRunning = false;
+            gamePaused = false;
+            autoPlay = false;
+            document.getElementById('score').textContent = score;
+            drawGame();
+        }
+
+        function gameOver() {
+            gameRunning = false;
+            if (score > bestScore) {
+                bestScore = score;
+                localStorage.setItem('bestScore', bestScore);
+                document.getElementById('bestScore').textContent = bestScore;
+            }
+        }
+
+        function toggleAutoPlay() {
+            if (gameRunning && !gamePaused) {
+                autoPlay = !autoPlay;
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!gameRunning) return;
+            switch(e.key) {
+                case 'ArrowUp':
+                case 'w':
+                case 'W':
+                    if (direction.y === 0) nextDirection = { x: 0, y: -1 };
+                    e.preventDefault();
+                    break;
+                case 'ArrowDown':
+                case 's':
+                case 'S':
+                    if (direction.y === 0) nextDirection = { x: 0, y: 1 };
+                    e.preventDefault();
+                    break;
+                case 'ArrowLeft':
+                case 'a':
+                case 'A':
+                    if (direction.x === 0) nextDirection = { x: -1, y: 0 };
+                    e.preventDefault();
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                case 'D':
+                    if (direction.x === 0) nextDirection = { x: 1, y: 0 };
+                    e.preventDefault();
+                    break;
+            }
+        });
+
+        // ============ STATISTICS LOADING ============
+        async function loadStatistics() {
+            const paths = ['./data/stats.json', '../data/stats.json', 'data/stats.json'];
+            let loaded = false;
+
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        const data = await response.json();
+                        displayStats(data);
+                        displayLanguages(data.languages);
+                        displayFrameworks(data.frameworks);
+                        displayDatabases(data.databases);
+                        document.getElementById('last-updated').textContent = new Date(data.lastUpdated).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        });
+                        loaded = true;
+                        break;
+                    }
+                } catch (error) {
+                    // Continue to next path
+                }
+            }
+
+            if (!loaded) {
+                loadExampleStats();
+            }
+        }
+
+        function loadExampleStats() {
+            displayStats(SAMPLE_DATA);
+            displayLanguages(SAMPLE_DATA.languages);
+            displayFrameworks(SAMPLE_DATA.frameworks);
+            displayDatabases(SAMPLE_DATA.databases);
+            document.getElementById('last-updated').textContent = 'Example Data (Run analyzer to update)';
+        }
+
+
+        function displayStats(data) {
+            const statsHtml = `
+                <div class="stat-card">
+                    <div class="stat-title">Total Repos</div>
+                    <div class="stat-value">${data.totalRepos}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Total Commits</div>
+                    <div class="stat-value">${data.totalCommits}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Top Language</div>
+                    <div class="stat-value">${data.topLanguage}</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Most Used</div>
+                    <div class="stat-value">${data.mostUsedFramework || 'N/A'}</div>
+                </div>
+            `;
+
+            document.getElementById('stats-container').innerHTML = statsHtml;
+        }
+
+        function displayLanguages(languages) {
+            if (!languages || Object.keys(languages).length === 0) {
+                document.getElementById('languages-container').innerHTML = '<p style="opacity: 0.7;">No language data available</p>';
+                return;
+            }
+
+            const total = Object.values(languages).reduce((a, b) => a + b, 0);
+            const sorted = Object.entries(languages)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 10);
+
+            const html = sorted.map(([lang, count]) => {
+                const percentage = ((count / total) * 100).toFixed(1);
+                return `
+                    <div class="language-item">
+                        <div class="language-name">
+                            <span>${lang}</span>
+                            <span class="language-percentage">${percentage}%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${percentage}%">
+                                ${percentage > 15 ? percentage + '%' : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('languages-container').innerHTML = html;
+        }
+
+        function displayFrameworks(frameworks) {
+            if (!frameworks || frameworks.length === 0) {
+                document.getElementById('frameworks-container').innerHTML = '<p style="opacity: 0.7;">No frameworks detected yet</p>';
+                return;
+            }
+
+            const html = frameworks.slice(0, 20).map(fw =>
+                `<div class="skill-badge">✨ ${fw}</div>`
+            ).join('');
+
+            document.getElementById('frameworks-container').innerHTML = html;
+        }
+
+        function displayDatabases(databases) {
+            if (!databases || databases.length === 0) {
+                document.getElementById('databases-container').innerHTML = '<p style="opacity: 0.7;">No databases detected yet</p>';
+                return;
+            }
+
+            const html = databases.slice(0, 20).map(db =>
+                `<div class="skill-badge">🗄️ ${db}</div>`
+            ).join('');
+
+            document.getElementById('databases-container').innerHTML = html;
+        }
+
+        // Initialize
+        window.addEventListener('load', () => {
+            drawGame();
+            // Load example data first, then try to fetch real data
+            loadExampleStats();
+            loadStatistics();
+        });
+
+        // Game loop
+        setInterval(() => {
+            update();
+            drawGame();
+        }, 1000 / 60);
+    </script>
+</body>
+</html>

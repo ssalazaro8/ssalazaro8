@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Salazar - GitHub Profile Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #24292e;
+            line-height: 1.6;
+        }
+
+        .github-container {
+            max-width: 890px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            color: white;
+        }
+
+        .ascii-box {
+            font-family: 'Courier New', monospace;
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-size: 12px;
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+        }
+
+        .badge-primary {
+            background: #24292e;
+        }
+
+        .badge-secondary {
+            background: #667eea;
+        }
+
+        .badge-danger {
+            background: #d73a49;
+        }
+
+        .badge-success {
+            background: #28a745;
+        }
+
+        .badge-info {
+            background: #0366d6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #f6f8fa;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: #f6f8fa;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #764ba2;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .philosophy-box {
+            background: #f6f8fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #f6f8fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e1e4e8;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #586069;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .language-item {
+            background: #f6f8fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+
+        .language-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .proficiency {
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .framework-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .fw-badge {
+            background: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e1e4e8;
+            margin: 30px 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #586069;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e4e8;
+        }
+
+        .emoji {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="github-container">
+        <!-- HEADER -->
+        <div class="profile-header">
+            <div class="ascii-box">╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║            👋 SAMUEL SALAZAR - FULL STACK DEVELOPER 🚀        ║
+║                                                               ║
+║        💻 Code Architect | 🎮 Problem Solver | ☕ Coffee      ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝</div>
+
+            <h1 style="color: white; margin: 20px 0;">⚡ Building Modern Web Applications | 🎯 Tech Stack Master | 🌟 Always Learning</h1>
+
+            <div class="badge-container">
+                <a href="#" class="badge badge-primary">GitHub</a>
+                <a href="#" class="badge badge-info">LinkedIn</a>
+                <a href="#" class="badge badge-danger">Email</a>
+                <a href="#" class="badge" style="background: #764ba2;">🎮 PLAY SNAKE</a>
+            </div>
+
+            <p style="margin: 15px 0; font-size: 12px; opacity: 0.9;">
+                📊 Profile Views: 350+ | 👥 Followers: 15+ | 📦 Repos: 15+
+            </p>
+        </div>
+
+        <!-- MISSION SECTION -->
+        <div class="section">
+            <h2>🎯 Mission & Philosophy</h2>
+            <div class="philosophy-box">
+                <pre>┌─────────────────────────────────────────────────────────────┐
+│  🎯 Building Scalable Solutions | 🔧 Mastering Tech Stacks │
+│  📚 Continuous Learning | 🚀 Innovation-Driven Development  │
+│  💡 Clean Code is Poetry | ☕ Coffee Powered Development    │
+└─────────────────────────────────────────────────────────────┘</pre>
+            </div>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Currently:</strong> Building production-grade applications with cutting-edge tech</li>
+                <li><strong>Learning:</strong> NestJS, ML/AI, Cloud Architecture, DevSecOps</li>
+                <li><strong>Passion:</strong> Creating elegant solutions to complex problems</li>
+                <li><strong>Philosophy:</strong> Code is communication → Clean Code is Essential</li>
+            </ul>
+        </div>
+
+        <!-- QUICK STATS -->
+        <div class="section">
+            <h2>📈 Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Total Stars</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">9+</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Frameworks</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LANGUAGES -->
+        <div class="section">
+            <h2>💻 Language Proficiency Matrix</h2>
+            <div class="ascii-box">┌─────────────────────────────────────────────────────────────┐
+│  LANGUAGE EXPERTISE & USAGE DISTRIBUTION                    │
+└─────────────────────────────────────────────────────────────┘</div>
+
+            <div class="languages-grid">
+                <div class="language-item">
+                    <div class="language-name">JavaScript</div>
+                    <div class="proficiency">⭐⭐⭐⭐⭐ Expert | 12+ Projects</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Python</div>
+                    <div class="proficiency">⭐⭐⭐⭐⭐ Expert | 8+ Projects</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">TypeScript</div>
+                    <div class="proficiency">⭐⭐⭐⭐⭐ Expert | 10+ Projects</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">SQL</div>
+                    <div class="proficiency">⭐⭐⭐⭐⭐ Expert | 14+ Projects</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">PHP</div>
+                    <div class="proficiency">⭐⭐⭐⭐ Advanced | 6+ Projects</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">Java</div>
+                    <div class="proficiency">⭐⭐⭐⭐ Advanced | 4+ Projects</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TECH STACK -->
+        <div class="section">
+            <h2>🔧 Tech Stack by Category</h2>
+
+            <h3>🎨 Frontend Frameworks & Libraries</h3>
+            <div class="framework-badges">
+                <span class="fw-badge">React</span>
+                <span class="fw-badge">Angular</span>
+                <span class="fw-badge">Vue.js</span>
+                <span class="fw-badge">Next.js</span>
+                <span class="fw-badge">Svelte</span>
+                <span class="fw-badge">Tailwind CSS</span>
+            </div>
+
+            <h3>🖥️ Backend Frameworks & Runtimes</h3>
+            <div class="framework-badges">
+                <span class="fw-badge">Node.js</span>
+                <span class="fw-badge">Express</span>
+                <span class="fw-badge">NestJS</span>
+                <span class="fw-badge">Django</span>
+                <span class="fw-badge">Flask</span>
+                <span class="fw-badge">FastAPI</span>
+                <span class="fw-badge">Laravel</span>
+                <span class="fw-badge">Spring</span>
+                <span class="fw-badge">ASP.NET</span>
+            </div>
+
+            <h3>🗄️ Databases</h3>
+            <div class="framework-badges">
+                <span class="fw-badge">MongoDB</span>
+                <span class="fw-badge">PostgreSQL</span>
+                <span class="fw-badge">MySQL</span>
+                <span class="fw-badge">SQLite</span>
+                <span class="fw-badge">Redis</span>
+                <span class="fw-badge">Firebase</span>
+                <span class="fw-badge">SQL Server</span>
+                <span class="fw-badge">Elasticsearch</span>
+            </div>
+
+            <h3>🛠️ DevOps & Tools</h3>
+            <div class="framework-badges">
+                <span class="fw-badge">Docker</span>
+                <span class="fw-badge">Kubernetes</span>
+                <span class="fw-badge">Git</span>
+                <span class="fw-badge">GitHub</span>
+                <span class="fw-badge">AWS</span>
+                <span class="fw-badge">Linux</span>
+                <span class="fw-badge">VS Code</span>
+                <span class="fw-badge">Webpack</span>
+                <span class="fw-badge">Jest</span>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE -->
+        <div class="section">
+            <h2>🎮 Interactive Experience</h2>
+            <div class="philosophy-box" style="text-align: center; border: none; border-radius: 8px;">
+                <div class="ascii-box">╔════════════════════════════════════════════════════════════╗
+║                   🎮 PLAY SNAKE GAME                      ║
+║                                                            ║
+║  📊 View Stats | 🎯 Compete | 🚀 See My Tech Stack       ║
+╚════════════════════════════════════════════════════════════╝</div>
+                <a href="#" class="cta-button">🕹️ CLICK HERE TO PLAY & VIEW YOUR STATS</a>
+                <p style="margin-top: 15px; color: #586069;">
+                    🎮 Playable Snake Game | 📊 Live Statistics | 🔧 Tech Stack Analysis | 📈 Project Analytics
+                </p>
+            </div>
+        </div>
+
+        <!-- WHAT I BUILD -->
+        <div class="section">
+            <h2>🌟 What I Build</h2>
+            <div style="text-align: center;">
+                <h3>Full-Stack Web Applications</h3>
+                <p style="color: #586069; margin: 15px 0;">From frontend to backend, database to deployment</p>
+                <ul style="list-style: none; color: #586069; margin: 20px 0;">
+                    <li>🎨 Stunning user interfaces with React, Angular, Vue.js</li>
+                    <li>🖥️ Robust APIs with Node.js, Django, FastAPI, Laravel</li>
+                    <li>💾 Scalable databases with PostgreSQL, MongoDB, Redis</li>
+                    <li>🚀 Production-ready applications with Docker & AWS</li>
+                </ul>
+                <a href="#" style="color: #0366d6; text-decoration: none; font-weight: 600;">🔗 Explore All My Projects →</a>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <h2>🤝 Let's Connect</h2>
+            <div class="badge-container">
+                <a href="#" class="badge badge-primary">GitHub</a>
+                <a href="#" class="badge badge-info">LinkedIn</a>
+                <a href="#" class="badge badge-danger">Email</a>
+            </div>
+            <hr>
+            <p>Made with ❤️ | Powered by ☕ | Built with 🚀</p>
+        </div>
+    </div>
+</body>
+</html>
