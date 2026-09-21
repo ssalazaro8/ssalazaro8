@@ -390,6 +390,24 @@
     </div>
 
     <script>
+        // Sample data (will be replaced when real stats.json is loaded)
+        const SAMPLE_DATA = {
+            totalRepos: 5,
+            totalCommits: 250,
+            topLanguage: 'JavaScript',
+            mostUsedFramework: 'React',
+            languages: {
+                'JavaScript': 3200,
+                'HTML': 2800,
+                'CSS': 2200,
+                'Python': 1800,
+                'TypeScript': 1500,
+                'PHP': 1200
+            },
+            frameworks: ['React', 'Angular', 'Node.js', 'Express', 'Django', 'NestJS', 'Laravel'],
+            databases: ['MongoDB', 'MySQL', 'PostgreSQL', 'SQLite', 'Redis', 'Firebase']
+        };
+
         // ============ SNAKE GAME ============
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
@@ -582,54 +600,44 @@
 
         // ============ STATISTICS LOADING ============
         async function loadStatistics() {
-            try {
-                const response = await fetch('./data/stats.json');
-                const data = await response.json();
+            const paths = ['./data/stats.json', '../data/stats.json', 'data/stats.json'];
+            let loaded = false;
 
-                displayStats(data);
-                displayLanguages(data.languages);
-                displayFrameworks(data.frameworks);
-                displayDatabases(data.databases);
-                document.getElementById('last-updated').textContent = new Date(data.lastUpdated).toLocaleDateString();
-            } catch (error) {
-                console.log('Stats file not yet generated. Run the analyzer script.');
-                displayDefaultStats();
+            for (const path of paths) {
+                try {
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        const data = await response.json();
+                        displayStats(data);
+                        displayLanguages(data.languages);
+                        displayFrameworks(data.frameworks);
+                        displayDatabases(data.databases);
+                        document.getElementById('last-updated').textContent = new Date(data.lastUpdated).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        });
+                        loaded = true;
+                        break;
+                    }
+                } catch (error) {
+                    // Continue to next path
+                }
+            }
+
+            if (!loaded) {
+                loadExampleStats();
             }
         }
 
-        function displayDefaultStats() {
-            const defaultStats = {
-                totalRepos: 'N/A',
-                totalCommits: 'N/A',
-                topLanguage: 'Python',
-                mostUsedFramework: 'Coming Soon'
-            };
-
-            const statsHtml = `
-                <div class="stat-card">
-                    <div class="stat-title">Total Repos</div>
-                    <div class="stat-value">${defaultStats.totalRepos}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">Total Commits</div>
-                    <div class="stat-value">${defaultStats.totalCommits}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">Top Language</div>
-                    <div class="stat-value">${defaultStats.topLanguage}</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-title">Most Used</div>
-                    <div class="stat-value">${defaultStats.mostUsedFramework}</div>
-                </div>
-            `;
-
-            document.getElementById('stats-container').innerHTML = statsHtml;
-            document.getElementById('languages-container').innerHTML = '<p style="opacity: 0.7;">Run the analyzer to populate language statistics</p>';
-            document.getElementById('frameworks-container').innerHTML = '<p style="opacity: 0.7;">Run the analyzer to populate frameworks</p>';
-            document.getElementById('databases-container').innerHTML = '<p style="opacity: 0.7;">Run the analyzer to populate databases</p>';
-            document.getElementById('last-updated').textContent = 'Never';
+        function loadExampleStats() {
+            displayStats(SAMPLE_DATA);
+            displayLanguages(SAMPLE_DATA.languages);
+            displayFrameworks(SAMPLE_DATA.frameworks);
+            displayDatabases(SAMPLE_DATA.databases);
+            document.getElementById('last-updated').textContent = 'Example Data (Run analyzer to update)';
         }
+
 
         function displayStats(data) {
             const statsHtml = `
@@ -714,6 +722,8 @@
         // Initialize
         window.addEventListener('load', () => {
             drawGame();
+            // Load example data first, then try to fetch real data
+            loadExampleStats();
             loadStatistics();
         });
 

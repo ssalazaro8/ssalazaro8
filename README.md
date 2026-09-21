@@ -1,21 +1,29 @@
 <div align="center">
 
-# 👋 Hi, I'm Samuel Salazar!
+```
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║            👋 SAMUEL SALAZAR - FULL STACK DEVELOPER 🚀        ║
+║                                                               ║
+║        💻 Code Architect | 🎮 Problem Solver | ☕ Coffee      ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+```
 
-### 💻 Full-Stack Developer | 🚀 Tech Enthusiast | 🎮 Problem Solver | ☕ Coffee Powered
+### ⚡ Building Modern Web Applications | 🎯 Tech Stack Master | 🌟 Always Learning
 
-<a href="https://github.com/ssalazaro8" target="_blank">
-  <img src="https://img.shields.io/badge/GitHub-ssalazaro8-black?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-</a>
-<a href="https://www.linkedin.com/in/samuel-salazar-ospina-419899245" target="_blank">
-  <img src="https://img.shields.io/badge/LinkedIn-Samuel_Salazar-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
-</a>
-<a href="mailto:samuelsala24@gmail.com" target="_blank">
-  <img src="https://img.shields.io/badge/Email-samuelsala24%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
-</a>
+<div>
+
+[<img src="https://img.shields.io/badge/GitHub-ssalazaro8-black?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>](https://github.com/ssalazaro8)
+[<img src="https://img.shields.io/badge/LinkedIn-Samuel_Salazar-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>](https://www.linkedin.com/in/samuel-salazar-ospina-419899245)
+[<img src="https://img.shields.io/badge/Email-samuelsala24%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>](mailto:samuelsala24@gmail.com)
+[<img src="https://img.shields.io/badge/🎮_PLAY_SNAKE-667eea?style=for-the-badge&labelColor=764ba2" alt="Play Snake"/>](./index.html)
+
+</div>
 
 ![Profile views](https://komarev.com/ghpvc/?username=ssalazaro8&label=Profile%20Views&color=667eea&style=flat-square)
 ![GitHub followers](https://img.shields.io/github/followers/ssalazaro8?style=flat-square&color=667eea)
+![Repos](https://img.shields.io/badge/Repos-15+-667eea?style=flat-square)
 
 </div>
 
@@ -23,97 +31,46 @@
 
 ---
 
-## 🚀 About Me
+## 🎯 Mission & Philosophy
 
-- 🔭 **Currently working on:** Building scalable, clean, and impactful applications
-- 🌱 **Learning:** NestJS, Machine Learning, AI, Cloud Architecture, DevOps & Cybersecurity
-- 💡 **Philosophy:** Clean code is a love letter to the next developer
-- ⚡ **Fun fact:** My secret framework is **☕ coffee**
+```
+┌─────────────────────────────────────────────────────────────┐
+│  🎯 Building Scalable Solutions | 🔧 Mastering Tech Stacks │
+│  📚 Continuous Learning | 🚀 Innovation-Driven Development  │
+│  💡 Clean Code is Poetry | ☕ Coffee Powered Development    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+- **Currently:** Building production-grade applications with cutting-edge tech
+- **Learning:** NestJS, ML/AI, Cloud Architecture, DevSecOps
+- **Passion:** Creating elegant solutions to complex problems
+- **Philosophy:** Code is communication → Clean Code is Essential
 
 ---
 
-## 💻 Programming Languages I Use
+## 💻 **Language Proficiency Matrix**
 
-<table>
-<tr>
-<td width="33%">
-
-**JavaScript**
 ```
-████████████░░░ 82%
+┌─────────────────────────────────────────────────────────────┐
+│  LANGUAGE EXPERTISE & USAGE DISTRIBUTION                    │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-</td>
-<td width="33%">
+<div align="center">
 
-**Python**  
-```
-██████████░░░░░ 68%
-```
+| Language | Proficiency | Projects | Status |
+|:---:|:---:|:---:|:---:|
+| ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) | ⭐⭐⭐⭐⭐ | 12+ | 🔥 Expert |
+| ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white) | ⭐⭐⭐⭐⭐ | 8+ | 🔥 Expert |
+| ![TypeScript](https://img.shields.io/badge/-TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) | ⭐⭐⭐⭐⭐ | 10+ | 🔥 Expert |
+| ![PHP](https://img.shields.io/badge/-PHP-777BB4?style=flat&logo=php&logoColor=white) | ⭐⭐⭐⭐ | 6+ | ✨ Advanced |
+| ![Java](https://img.shields.io/badge/-Java-007396?style=flat&logo=java&logoColor=white) | ⭐⭐⭐⭐ | 4+ | ✨ Advanced |
+| ![SQL](https://img.shields.io/badge/-SQL-CC2927?style=flat&logo=microsoft-sql-server&logoColor=white) | ⭐⭐⭐⭐⭐ | 14+ | 🔥 Expert |
+| ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white) | ⭐⭐⭐⭐⭐ | 15+ | 🔥 Expert |
+| ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white) | ⭐⭐⭐⭐⭐ | 15+ | 🔥 Expert |
+| ![Go](https://img.shields.io/badge/-Go-00ADD8?style=flat&logo=go&logoColor=white) | ⭐⭐⭐ | 2+ | 📈 Intermediate |
 
-</td>
-<td width="33%">
-
-**TypeScript**
-```
-███████████░░░░ 75%
-```
-
-</td>
-</tr>
-<tr>
-<td width="33%">
-
-**PHP**
-```
-█████████░░░░░░ 60%
-```
-
-</td>
-<td width="33%">
-
-**Java**
-```
-███████░░░░░░░░ 48%
-```
-
-</td>
-<td width="33%">
-
-**C / C#**
-```
-██████░░░░░░░░░ 42%
-```
-
-</td>
-</tr>
-<tr>
-<td width="33%">
-
-**SQL**
-```
-████████████░░░ 80%
-```
-
-</td>
-<td width="33%">
-
-**Go**
-```
-█████░░░░░░░░░░ 35%
-```
-
-</td>
-<td width="33%">
-
-**HTML/CSS**
-```
-██████████████░ 88%
-```
-
-</td>
-</tr>
-</table>
+</div>
 
 ---
 
@@ -181,28 +138,94 @@
 
 ---
 
-## 🎮 Interactive Dashboard
+## 🌟 Featured Interactive Experience
+
+```
+╔════════════════════════════════════════════════════════════╗
+║                   🎮 SNAKE GAME DASHBOARD                  ║
+║                                                            ║
+║  🎯 Play | 📊 Analyze | 🚀 Track Progress                 ║
+╚════════════════════════════════════════════════════════════╝
+```
 
 <div align="center">
 
-### 🌟 **Play Snake Game + View Dynamic Statistics**
+### 🎮 **Interactive Dashboard with Playable Snake Game**
 
-[![Open Interactive Dashboard](https://img.shields.io/badge/🎮_PLAY_SNAKE_GAME-667eea?style=for-the-badge&labelColor=764ba2)](./index.html)
+**[🕹️ CLICK HERE TO PLAY & VIEW YOUR STATS](./index.html)**
 
-The dashboard includes:
-- 🎮 **Playable Snake Game** with auto-play mode
-- 📊 **Real-time Language Statistics** with percentages
-- 🔧 **Frameworks & Tools Showcase**
-- 🗄️ **Database Technologies**
-- 🎨 **Modern Glassmorphism Design**
-- 📱 **Fully Responsive Interface**
+**Dashboard Features:**
+```
+✨ Playable Snake Game          📊 Real-time Statistics
+🤖 Auto-play AI Mode           📈 Language Distribution  
+🏆 Leaderboard System          🔧 Tech Stack Analysis
+🎨 Modern UI/UX Design         🗄️ Database Overview
+```
 
-**To generate updated statistics:**
+**Update your live statistics:**
 ```bash
-python scripts/analyzer.py
+# Analyze all your GitHub repositories
+python scripts/advanced_analyzer.py
+
+# This generates:
+# - data/stats.json (dashboard data)
+# - PROFILE_METRICS.md (detailed report)
 ```
 
 </div>
+
+---
+
+## 📊 Comprehensive Metrics & Analytics
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║              📈 PROFILE STATISTICS & ANALYTICS               ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+### 🔢 Quick Stats
+
+<table>
+<tr>
+<td width="25%">
+
+**📦 Projects**
+```
+████████░░ 15+
+```
+Active & Growing
+
+</td>
+<td width="25%">
+
+**⭐ Recognition**
+```
+██████████ 100+
+```
+Total Stars
+
+</td>
+<td width="25%">
+
+**🗣️ Languages**
+```
+███████░░░ 9+
+```
+Languages Used
+
+</td>
+<td width="25%">
+
+**🔧 Frameworks**
+```
+██████████ 20+
+```
+Tech Stack
+
+</td>
+</tr>
+</table>
 
 ---
 
