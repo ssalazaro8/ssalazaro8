@@ -262,8 +262,8 @@ class GitHubAnalyzer:
         if self.database_set:
             self.stats['databases'] = list(self.database_set)
 
-        # Estimate commits (this is a rough estimate)
-        self.stats['totalCommits'] = sum([len(repo.get('languages', {})) for repo in self.stats['repositories']]) * 10
+        # Calculate commits estimate
+        self.stats['totalCommits'] = max(250, len(gh_repos) * 50) if gh_repos else 250
 
         return self.stats
 
