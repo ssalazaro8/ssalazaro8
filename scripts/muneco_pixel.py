@@ -59,4 +59,4 @@ frames[0].save(
     loop=0
 )
 
-print("¡GIF del auto chimba generado en assets/auto_chimba.gif!")
+print("GIF actualizado en assets/muneco_pixel_final.gif")

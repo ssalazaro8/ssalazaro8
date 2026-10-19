@@ -13,23 +13,19 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          persist-credentials: true
 
       - name: Generate snake animation
         uses: Platane/snk@v3
         with:
           github_user_name: ssalazaro8
           outputs: |
-            dist/snake.svg
+            assets/snake.svg
+            assets/snake-dark.svg?palette=github-dark
 
-      - name: Move snake to assets
-        run: |
-          mkdir -p assets
-          cp dist/snake.svg assets/snake.svg   # usamos cp en lugar de mv
-
-      - name: Commit snake
-        run: |
-          git config user.name github-actions
-          git config user.email actions@github.com
-          git add assets/snake.svg
-          git commit -m "update snake" || echo "no changes"
-          git push
+      - name: Commit generated files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update contribution snake"
+          file_pattern: assets/snake.svg assets/snake-dark.svg
